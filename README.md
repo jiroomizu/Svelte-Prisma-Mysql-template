@@ -18,12 +18,19 @@ Each instances can be run as docker container, especially MySQL server is relyin
   You can ignore VITE_ACCESS_TOKEN, it is not required in development mode.
 - Then run the command below.
 
-```
+```bash
 docker compose build
 docker compose up -d
+docker exec -it api npx prisma migrate dev
 ```
 
-- Wait for some seconds, now you can access http://localhost:3000 (if you didn't change it.)
+- Wait for some seconds, then restart the api server.
+
+```bash
+docker container restart api
+```
+
+- now you can access http://localhost:3000 (if you didn't change it in .env.)
 
 ## Development
 

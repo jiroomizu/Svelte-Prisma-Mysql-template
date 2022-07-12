@@ -1,5 +1,6 @@
-// to seeding sample data
-// run `npx prisma db seed` inside of `/api/`
+// seeding sample data
+// this runs after do `migrate dev` at first time.
+// run `npx prisma db seed` inside of `/api/` when you need.
 
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
