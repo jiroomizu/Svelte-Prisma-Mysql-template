@@ -38,7 +38,7 @@ docker container restart api
 
 Svelte is easy to start, easy to maintain, and lightweight in many cases. And Svelte-Kit is also great to develop webapps.
 
-In here, I just made one simple GraphQL query to fill the contents from DB, but it shows how to deal with many to many relations query and mutation. Check `posts.resolver.ts` in api.
+In here, I just made one simple GraphQL query to fill the contents from DB, but it shows how to deal with many to many relations query and mutation. Check `posts.resolver.ts` in `/api/src/models/`.
 
 Svelte https://svelte.dev/
 
@@ -49,12 +49,12 @@ Vite https://vitejs.dev/
 ### api
 
 Api container using GraphQL Yoga and Prisma.  
-GraphQL queries can be tested in GraphiQL UI in `http://localhost:4021/api`.
+GraphQL queries can be tested in GraphiQL UI in http://localhost:4021/api.
 
 Prisma Studio can be started with command `npm prisma studio`, but you need run it in container if you are running the service in docker container.  
-You can access Prisma Studio in `http://localhost:5555`.
+You can access Prisma Studio in http://localhost:5555 .
 
-For development of `api` service, you should stop its container and run them locally. Because Prisma gannerates its Prisma Client inside of node_modules directory and it's different for each environments. Api container is based on node.js image with Alpine Linux OS and your local OS may be different.
+For development of api service, you should stop its container and run them locally. Because Prisma gannerates its Prisma Client inside of node_modules directory and it's different for each environments. Api container is based on node.js image with Alpine Linux OS and your local OS may be different.
 
 For above reason, generating Prisma Client is required in each environment and also changing DATABASE_URL.
 
