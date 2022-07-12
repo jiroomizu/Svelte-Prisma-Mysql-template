@@ -1,0 +1,81 @@
+mutation {
+  # making admin user
+  createUser(name: "Admin", email: "who@example.com") {
+    name
+  }
+
+  # create one tag
+  createTag(name: "HTML/CSS") {
+    name
+  }
+
+  # create multiple tags
+  # graphiql-yoga will throw error because of
+  # return value from Prisma won't match,
+  # But mutation works.
+  createManyTags(
+    names: [
+      "JavaScript"
+      "TypeScript"
+      "MySQL"
+      "PHP"
+      "GraphQL"
+      "node.js"
+      "React"
+      "Svelte"
+      "Prisma"
+      "Apollo GraphQL"
+      "express"
+      "Linux"
+      "CI/CD"
+    ]
+  ) {
+    name
+  }
+
+  # create single category
+  createCategory(name: "Design") {
+    id
+    name
+  }
+
+  # create multiple categories
+  # graphiql-yoga will throw error because of
+  # return value from Prisma won't match,
+  # But mutation works.
+  createManyCategories(names: ["Implementation", "System Planning"]) {
+    name
+  }
+
+  # update category
+  updateCategory(id: 1, name: "Design into Code") {
+    id
+    name
+  }
+
+  # create a post
+  createPost(
+    title: "First Post"
+    content: "This is a sample post. HTML tags <i>included</i>,"
+    authorId: 1
+    tags: [1, 3, 7]
+    categories: [1, 2]
+  ) {
+    title
+    content
+    authorId
+  }
+
+  # update the post
+  updatePost(
+    id: 1
+    content: "This is a sample post. HTML tags <i>works</i>. As an experienced and broad sighted front-end/full-stack developer I've worked in e-commerce and branding fields for over a decade."
+    categories: []
+    tags: []
+  ) {
+    id
+    title
+    content
+    authorId
+  }
+}

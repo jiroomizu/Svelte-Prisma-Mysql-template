@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+
+  db:
+    image: mysql
+    container_name: db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - ./db:/var/lib/mysql
+    env_file: './db/.env'
+
+  api:
+    build:
+      dockerfile: ./docker/api/Dockerfile
+    container_name: 'api'
+    ports:
+      - '4021:4021' # for prisma api
+      - '5555:5555' # for prisma studio
+    depends_on:
+      - db
+    env_file: './api/.env'
+    volumes:
+      - ./api:/home/node/api
+      - /home/node/api/node_modules
+
+  app:
+    build:
+      dockerfile: ./docker/app/Dockerfile
+    container_name: 'app'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - api
+    env_file: './app/.env'
+    volumes:
+      - ./app:/home/node/app
+      - /home/node/app/node_modules
+
+volumes:
+  db:
+  api:
+  app:
