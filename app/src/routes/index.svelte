@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-	import { config } from '../app.config';
+	import { config } from '$src/app.config';
 	import Block from '$lib/Block.svelte';
 	import type { Post } from '$types/global';
 	const query = /* graphQL */ `{
