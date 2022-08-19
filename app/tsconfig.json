@@ -9,5 +9,12 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true
-	}
+	},
+	"include": [
+		"./src",
+		"./types"
+	],
+	"exclude": [ 
+		"./*.config.js"
+	],
 }
