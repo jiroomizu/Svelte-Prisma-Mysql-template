@@ -28,5 +28,4 @@ export type Post = {
 		}
 	];
 	tagsStr: string[];
-	modifier: string;
 };

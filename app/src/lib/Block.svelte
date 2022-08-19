@@ -4,7 +4,6 @@
 
 	interface BlockData {
 		id: number;
-		modifier: string;
 		title: string;
 		link: string;
 		content: string;
@@ -14,7 +13,6 @@
 
 	export let data: BlockData = {
 		id: 0,
-		modifier: '',
 		title: '',
 		link: '',
 		content: '',
@@ -22,10 +20,22 @@
 		tagsStr: []
 	};
 
-	const sectionClass = !!data.modifier ? `block block--${data.modifier}` : 'block';
+	const modifier: Record<string, string | null> = {
+		narrow: 'narrow',
+		default: null
+	};
+
+	let key: string;
+	if (!data.title) {
+		key = 'narrow';
+	} else if (!!data === true) {
+		// add another pattern if needed
+	} else {
+		key = 'default';
+	}
 </script>
 
-<section class={sectionClass}>
+<section class={!!modifier[key] ? `block block--${modifier[key]}` : 'block'}>
 	<!-- heading can be ommited. -->
 	{#if !!data.title}
 		<h2 class="block__heading">
