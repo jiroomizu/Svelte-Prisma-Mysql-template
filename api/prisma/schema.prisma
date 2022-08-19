@@ -39,6 +39,7 @@ model Post {
 model Tag {
   id        Int           @id @default(autoincrement())
   name      String        @unique @default("") @db.VarChar(255)
+  sortOrder Int           @default(100) @db.SmallInt
   createdAt DateTime      @default(now())
   updatedAt DateTime      @default(now()) @updatedAt
   posts     TagsOnPosts[]
@@ -58,6 +59,7 @@ model TagsOnPosts {
 model Category {
   id        Int                 @id @default(autoincrement())
   name      String              @unique @default("") @db.VarChar(255)
+  sortOrder Int                 @default(100) @db.SmallInt
   createdAt DateTime            @default(now())
   updatedAt DateTime            @default(now()) @updatedAt
   posts     CategoriesOnPosts[]

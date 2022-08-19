@@ -16,10 +16,20 @@ const postResolver = {
             include: {
               tag: true,
             },
+            orderBy: {
+              tag: {
+                sortOrder: "asc",
+              },
+            },
           },
           categories: {
             include: {
               category: true,
+            },
+            orderBy: {
+              category: {
+                sortOrder: "asc",
+              },
             },
           },
         },

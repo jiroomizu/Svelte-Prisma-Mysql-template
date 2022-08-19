@@ -5,7 +5,7 @@ const tagResolver = {
     getAllTags: (_: {}, args: {}, ctx: GraphQLContext) => {
       return ctx.prisma.tag.findMany({
         orderBy: {
-          name: "asc",
+          sortOrder: "asc",
         },
       });
     },

@@ -19,7 +19,7 @@ export default /* GraphQL */ `
       link: String
       title: String
       content: String
-      authorId: Int
+      authorId: Int!
       tags: [Int] # create & update are invoked with ids
       categories: [Int] # create & update are invoked with ids
     ): Post!
@@ -41,19 +41,21 @@ export default /* GraphQL */ `
 
   type TagsOnPosts {
     id: Int!
-    postId: Int
+    postId: Int!
     tag: Tag
-    tagId: Int
+    tagId: Int!
+    sortOrder: Int
     createdAt: GraphQLDateTime
-    assignedBy: Int
+    assignedBy: Int!
   }
 
   type CategoriesOnPosts {
     id: Int!
-    postId: Int
+    postId: Int!
     category: Category
-    categoryId: Int
+    categoryId: Int!
+    sortOrder: Int
     createdAt: GraphQLDateTime
-    assignedBy: Int
+    assignedBy: Int!
   }
 `;

@@ -5,7 +5,7 @@ const categoryResolver = {
     getAllCategories: (_: {}, args: {}, ctx: GraphQLContext) => {
       return ctx.prisma.category.findMany({
         orderBy: {
-          name: "asc",
+          sortOrder: "asc",
         },
       });
     },
