@@ -15,7 +15,7 @@ Each instances can be run as docker container, especially MySQL server is relyin
 ## How to start
 
 - Clone this repo, copy `/api/.env.example`, `/app/.env.example`, `/db/.env.example`, as `.env` in each directory, then edit them accordingly.  
-  You can ignore VITE_ACCESS_TOKEN, it is not required in development mode.
+  You can ignore VITE_API_ACCESS_TOKEN, it is not required in development mode.
 - Then run the command below.
 
 ```bash
