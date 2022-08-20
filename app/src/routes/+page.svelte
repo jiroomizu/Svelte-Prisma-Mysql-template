@@ -1,7 +1,3 @@
-<script context="module" lang="ts">
-	export const prerender = true;
-</script>
-
 <script lang="ts">
 	import { config } from '$src/app.config';
 	import Block from '$lib/Block.svelte';
