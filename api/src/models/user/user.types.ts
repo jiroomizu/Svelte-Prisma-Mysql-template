@@ -5,17 +5,19 @@ export default /* GraphQL */ `
   }
 
   type Mutation {
-    createUser(name: String!, email: String!): User!
+    createUser(name: String!, email: String!, password: String!): User!
 
     updateUser(
       id: Int!
       name: String
       email: String
       avatar: String
-      credential: String
+      password: String
     ): User
 
     deleteUser(id: Int!): User
+
+    authUser(email: String, password: String): User
   }
 
   type User {
@@ -24,6 +26,7 @@ export default /* GraphQL */ `
     email: String
     avatar: String
     password: String
+    lastLogIn: GraphQLDateTime
     createdAt: GraphQLDateTime
     updatedAt: GraphQLDateTime
   }
