@@ -82,18 +82,24 @@ const userResolver = {
       },
       ctx: GraphQLContext
     ) => {
-      const targetUser = await ctx.prisma.user.update({
-        where: {
-          email: args.email,
-        },
-        data: {
-          lastLogIn: new Date(),
-        },
-      });
-      if (matchPassword(args.password, targetUser.password)) {
-        return targetUser;
+      try {
+        const targetUser = await ctx.prisma.user.update({
+          where: {
+            email: args.email,
+          },
+          data: {
+            lastLogIn: new Date(),
+          },
+        });
+        if (matchPassword(args.password, targetUser.password)) {
+          return targetUser;
+        }
+        // return same error message when password is not matched.
+        return new Error("email or password is not correct.");
+      } catch (e) {
+        // return same error message when user is not existed.
+        return new Error("email or password is not correct.");
       }
-      return "email or password is not correct.";
     },
   },
 };

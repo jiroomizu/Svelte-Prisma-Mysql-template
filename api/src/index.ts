@@ -26,6 +26,7 @@ const corsOptions = {
 const additionalOptions = !!isDevelopment
   ? {
       // development
+      maskedErrors: false,
     }
   : {
       // production
