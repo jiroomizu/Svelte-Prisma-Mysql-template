@@ -2,7 +2,7 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import { expressjwt } from "express-jwt";
 import helmet from "helmet";
-import { createServer } from "@graphql-yoga/node";
+import { createYoga } from "graphql-yoga";
 import { useDisableIntrospection } from "@envelop/disable-introspection";
 import { createContext } from "./client";
 import { schema } from "./schema";
@@ -10,7 +10,7 @@ import { schema } from "./schema";
 // environment variables
 const port: number = Number(process.env.PORT) || 4021;
 const endpoint: string = process.env.GRAPHQL_ENDPOINT || "graphql";
-const isDevelopment: boolean = process.env.NODE_ENV == "development" || true;
+const isDevelopment: boolean = !!(process.env.NODE_ENV === "development");
 const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET || "";
 
 // get CORS_WHITELIST and make it corsOption ready
@@ -21,23 +21,23 @@ const corsOptions = {
   origin: whitelist,
   optionsSuccessStatus: 200,
   credentials: true,
+  // allowedHeaders: ["X-GQL-Request"],
+  methods: ["POST"],
 };
 
 const additionalOptions = !!isDevelopment
   ? {
       // development
       maskedErrors: false,
+      graphqlEndpoint: "/" + endpoint,
     }
   : {
       // production
-
       // disable debugging messages and tools
       graphiql: false,
       plugins: [useDisableIntrospection],
-      maskedErrors: {
-        handleParseErrors: true,
-        handleValidationErrors: true,
-      },
+      landingPage: false,
+      maskedErrors: true,
     };
 
 // construct server and apply middlewares
@@ -69,7 +69,7 @@ if (isDevelopment) {
 }
 
 // apply options for the server
-const graphQLServer = createServer({
+const graphQLServer = createYoga({
   schema,
   context: createContext,
   cors: corsOptions,
