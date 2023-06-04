@@ -20,8 +20,8 @@ devDependencies:
     specifier: next
     version: 1.0.0-next.91(@sveltejs/kit@1.16.3)
   '@sveltejs/adapter-static':
-    specifier: 1.0.0-next.39
-    version: 1.0.0-next.39
+    specifier: ^2.0.2
+    version: 2.0.2(@sveltejs/kit@1.16.3)
   '@sveltejs/kit':
     specifier: 1.16.3
     version: 1.16.3(svelte@3.59.1)(vite@4.3.8)
@@ -385,8 +385,12 @@ packages:
       import-meta-resolve: 2.2.2
     dev: true
 
-  /@sveltejs/adapter-static@1.0.0-next.39:
-    resolution: {integrity: sha512-EeD39H6iEe0UEKnKxLFTZFZpi/FcX5xfbAvsMQ+B09aDZccpQmkJBSIo+4kq1JsQGSjwi/+J3aE9bR67R6CIyQ==}
+  /@sveltejs/adapter-static@2.0.2(@sveltejs/kit@1.16.3):
+    resolution: {integrity: sha512-9wYtf6s6ew7DHUHMrt55YpD1FgV7oWql2IGsW5BXquLxqcY9vjrqCFo0TzzDpo+ZPZkW/v77k0eOP6tsAb8HmQ==}
+    peerDependencies:
+      '@sveltejs/kit': ^1.5.0
+    dependencies:
+      '@sveltejs/kit': 1.16.3(svelte@3.59.1)(vite@4.3.8)
     dev: true
 
   /@sveltejs/kit@1.16.3(svelte@3.59.1)(vite@4.3.8):
