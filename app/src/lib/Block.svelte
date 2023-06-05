@@ -61,7 +61,7 @@
 		.block__heading {
 			color: #eee;
 			font-weight: 400;
-			margin: 2rem auto 0.5rem;
+			margin: 2rem auto 0.75rem;
 		}
 
 		.block__heading::before {

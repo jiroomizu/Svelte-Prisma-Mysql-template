@@ -10,11 +10,12 @@
 
 <style lang="scss">
 	.para {
-		color: #ddd;
+		color: #eee;
 		font-size: 1.4rem;
 		font-weight: 300;
+    letter-spacing: .015rem;
+    line-height: 1.35;
 		margin: 0.5rem auto 0.5rem;
-		line-height: 1.35;
 	}
 	.para--small {
 		font-size: 1rem;
