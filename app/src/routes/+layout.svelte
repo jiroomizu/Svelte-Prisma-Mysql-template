@@ -22,10 +22,12 @@
 </footer>
 
 <style lang="scss">
-	:global {
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap');
+	:global(html) {
 		color: #ddd;
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-			'Open Sans', 'Helvetica Neue', sans-serif;
+		font-family: Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+		 'Helvetica Neue', sans-serif;
+     font-weight: 300;
 		text-align: left;
 	}
 
@@ -77,7 +79,8 @@
 		white-space: initial;
 		.header__title {
 			font-size: 2.7rem;
-			font-weight: 100;
+			font-weight: 400;
+      letter-spacing: -.075rem;
 			margin: 0 auto 0.5rem;
 			text-align: left;
 			white-space: pre-wrap;
@@ -85,8 +88,8 @@
 
 		.header__cite {
 			font-size: 1.1rem;
-			font-weight: 200;
-			letter-spacing: 0.03rem;
+			font-weight: 300;
+			letter-spacing: 0.06rem;
 			line-height: 1.4;
 		}
 	}
@@ -104,7 +107,7 @@
 			text-align: center;
 			white-space: normal;
 			.header__title {
-				font-size: 5rem;
+				font-size: 6rem;
 			}
 
 			.header__cite {

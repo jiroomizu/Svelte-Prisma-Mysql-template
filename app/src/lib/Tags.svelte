@@ -37,6 +37,7 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
+    font-weight: 400;
 		margin: 0 3rem 0 0;
 		padding: 0;
 	}

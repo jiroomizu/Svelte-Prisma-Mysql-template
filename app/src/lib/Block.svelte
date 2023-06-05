@@ -80,8 +80,9 @@
 		}
 
 		.block__anchor:hover {
-			color: #00c;
+			color: #33c;
 			text-decoration: underline;
+      transition: color .25s;
 		}
 	}
 	.block--narrow {

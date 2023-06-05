@@ -12,7 +12,7 @@
 	.para {
 		color: #ddd;
 		font-size: 1.4rem;
-		font-weight: 200;
+		font-weight: 300;
 		margin: 0.5rem auto 0.5rem;
 		line-height: 1.35;
 	}
