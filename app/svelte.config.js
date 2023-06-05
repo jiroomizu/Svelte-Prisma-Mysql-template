@@ -5,22 +5,27 @@ import preprocess from 'svelte-preprocess';
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-  preprocess: preprocess(),
+	preprocess: preprocess(),
 
 	kit: {
-    adapter: adapter({
-      pages: 'build',
-      assets: 'build',
-      fallback: null,
-      precompress: false
-    }),
-
-    // path aliases to import
-    alias: {
-      $src: './src',
-      $types: './types',
-    },
-  },
+		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: null,
+			precompress: false,
+			strict: true
+		}),
+		prerender: {
+			concurrency: 1,
+			entries: ['/']
+		},
+		alias: {
+			types: './types/'
+		},
+		files: {
+			lib: './src/lib'
+		}
+	}
 };
 
 export default config;
