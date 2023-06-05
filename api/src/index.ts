@@ -21,7 +21,6 @@ const corsOptions = {
   origin: whitelist,
   optionsSuccessStatus: 200,
   credentials: true,
-  // allowedHeaders: ["X-GQL-Request"],
   methods: ["POST"],
 };
 
